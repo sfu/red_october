@@ -1,0 +1,19 @@
+{
+  "name": "redoctober",
+  "version": "1.0.0",
+  "description": "Give me a ping, Vasili. One ping only, please.",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "Graham Ballantyne <grahamb@sfu.ca>",
+  "license": "ISC",
+  "dependencies": {
+    "bluebird": "^2.9.14",
+    "request": "^2.53.0"
+  },
+  "devDependencies": {
+    "mocha": "^2.2.1",
+    "should": "^5.2.0"
+  }
+}
