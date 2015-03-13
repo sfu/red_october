@@ -1,2 +1,25 @@
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
+<h1>Red October</h1>
+<h2>Красный Oктябрь</h2>
+
+<form id="ping" action="/ping" method="POST">
+  http://www.sfu.ca<input type="text" id="url" name="url" value="/itservices.html" />
+  <input type="submit" value="One Ping Only, Please" />
+</form>
+
+<div class="results"></div>
+
+<script>
+$('form#ping').on('submit', function(ev) {
+  ev.preventDefault();
+  $('.results').html('<p>Pinging&hellip;</p>');
+  $.post('/ping', {url: $('#url').val() }, function(data) {
+    data = JSON.parse(data);
+    var html = ['<ul>'];
+    data.forEach(function(response) {
+      html.push('<li>' + response.res.url + ' - Status ' + response.res.status + ' ' + response.res.statusText + ' - ' + response.elapsed_ms + ' ms');
+    });
+    html.push('</ul>');
+    $('.results').html(html.join(''));
+  });
+});
+</script>
