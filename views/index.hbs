@@ -11,22 +11,22 @@
 <div class="results"></div>
 
 <script>
-$('form#ping').on('submit', function(ev) {
-  ev.preventDefault();
-  $('.results').html('<p>Pinging&hellip;</p>');
-  $.post('/ping', {url: $('#url').val(), timeout: $('#timeout').val() }, function(data) {
-    data = JSON.parse(data);
-    var html = ['<section class="successes"><ul>'];
-    data.successes.forEach(function(response) {
-      html.push('<li>' + response.res.url + ' - Status ' + response.res.status + ' ' + response.res.statusText + ' - ' + response.elapsed_ms + ' ms</li>');
-    });
-    html.push('</ul></section><section class="failures"><ul>');
-    data.failures.forEach(function(response) {
-      html.push('<li>' + response + '</li>');
-    })
-    html.push('</ul>');
+// $('form#ping').on('submit', function(ev) {
+//   ev.preventDefault();
+//   $('.results').html('<p>Pinging&hellip;</p>');
+//   $.post('/ping', {url: $('#url').val(), timeout: $('#timeout').val() }, function(data) {
+//     data = JSON.parse(data);
+//     var html = ['<section class="successes"><ul>'];
+//     data.successes.forEach(function(response) {
+//       html.push('<li>' + response.res.url + ' - Status ' + response.res.status + ' ' + response.res.statusText + ' - ' + response.elapsed_ms + ' ms</li>');
+//     });
+//     html.push('</ul></section><section class="failures"><ul>');
+//     data.failures.forEach(function(response) {
+//       html.push('<li>' + response + '</li>');
+//     })
+//     html.push('</ul>');
 
-    $('.results').html(html.join(''));
-  });
-});
+//     $('.results').html(html.join(''));
+//   });
+// });
 </script>
