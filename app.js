@@ -4,6 +4,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var webpackMiddleware = require("webpack-dev-middleware");
 
 var routes = require('./routes/index');
 
@@ -12,6 +13,10 @@ var app = express();
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
+
+if (app.get('env') === 'development') {
+  app.use(webpackMiddleware(require('webpack')(require('./webpack.config.js'))));
+}
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(__dirname + '/public/favicon.ico'));
