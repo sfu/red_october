@@ -5,12 +5,14 @@ var expect = chai.expect;
 var chaiAsPromised = require("chai-as-promised");
 chai.use(chaiAsPromised);
 
+var expected_keys = ['url', 'status', 'statusText', 'ok', 'elapsed_ns', 'elapsed_ms'];
+
 describe('PingTest', function() {
   var ping = require('../lib/ping');
 
   it('should fetch the page and return an object containing the elapsed time in ns, elapsed time in ms and the response object', function(done) {
     var promise = ping('http://www.sfu.ca');
-    promise.should.eventually.be.an('object').with.keys(['elapsed_ns', 'elapsed_ms', 'res']).and.and.notify(done);
+    promise.should.eventually.be.an('object').with.keys(expected_keys).and.and.notify(done);
   });
 
   it('should handle a timeout by returning an error object', function(done) {
@@ -31,7 +33,7 @@ describe('PingTest', function() {
     });
     promises.then(function(responses) {
       responses.should.be.an('array').with.length(urls.length);
-      responses[0].should.be.an('object').with.keys(['elapsed_ns', 'elapsed_ms', 'res']);
+      responses[0].should.be.an('object').with.keys(expected_keys);
     }).then(done);
   })
 });
