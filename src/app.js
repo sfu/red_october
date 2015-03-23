@@ -1,2 +1,6 @@
 require('./less/style.less');
-console.log('hello world');
+
+var React = require('react');
+var PingForm = require('./PingForm');
+
+React.render(<PingForm />, document.getElementById('app'));
