@@ -1,0 +1,61 @@
+#!/bin/bash
+
+# post-receive hook to deploy node app
+
+# bail if branch deleted
+while read OLDSHA NEWSHA REF ; do
+  if [[ "$NEWSHA" == "0000000000000000000000000000000000000000" ]]; then
+    echo "Branch deleted, nothing to do"
+    exit 0
+  fi
+done
+
+# vars
+GIT_DIR=/home/nodeuser/repos/redoctober.git
+DEPLOY_BASE_PATH=/var/nodeapps/redoctober
+DATESTAMP=$(date +"%Y%m%d%H%M%S")
+RELEASE_PATH="$DEPLOY_BASE_PATH/releases/$DATESTAMP"
+CURRENT_PATH="$DEPLOY_BASE_PATH/current"
+SHARED_PATH="$DEPLOY_BASE_PATH/shared"
+PRESTART_URL="http://localhost:7464/isup"
+
+echo "GIT_DIR: $GIT_DIR"
+echo "DEPLOY_BASE_PATH: $DEPLOY_BASE_PATH"
+echo "DATESTAMP: $DATESTAMP"
+echo "RELEASE_PATH: $RELEASE_PATH"
+echo "CURRENT_PATH: $CURRENT_PATH"
+echo "SHARED_PATH: $SHARED_PATH"
+echo "DUMP_FILE: $DUMP_FILE"
+echo "PRESTART_URL: $PRESTART_URL"
+
+# create the release directory
+echo "Create the release directory"
+mkdir -p $RELEASE_PATH  || { echo "Error creating $RELEASE_PATH" ; exit 1; }
+
+# check out files to release directory
+echo "Check out files to release directory"
+git --work-tree=$RELEASE_PATH --git-dir=$GIT_DIR checkout -f || { echo "Error checking out files" ; exit 1; }
+
+# npm install
+echo "npm install"
+cd $RELEASE_PATH && npm install || { echo "Error running npm install" ; exit 1; }
+
+# copy config files
+echo "Copy config files"
+cp $SHARED_PATH/config/* $RELEASE_PATH/config || { echo "Error copying config files" ; exit 1; }
+
+# build for production
+echo "webpack -p"
+cd $RELEASE_PATH && /usr/local/bin/webpack -p || { echo "Error running gulp" ; exit 1; }
+
+# move symlink
+echo "Move symlink"
+if [ -L $CURRENT_PATH ] ; then
+    rm $CURRENT_PATH || { echo "Error removing current symlink" ; exit 1; }
+fi
+ln -s $RELEASE_PATH $CURRENT_PATH || { echo "Error making symlink" ; exit 1; }
+
+# restart
+echo "Restart"
+touch $SHARED_PATH/restart.txt || { echo "Error touching restart.txt"; exit 1; }
+curl $PRESTART_URL || { echo "Error hitting $PRESTART_URL" ; exit 1; }
