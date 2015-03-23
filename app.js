@@ -5,10 +5,20 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var webpackMiddleware = require("webpack-dev-middleware");
+var session = require('express-session')
+var config = require('config');
 
 var routes = require('./routes/index');
 
 var app = express();
+
+app.enable('trust proxy');
+
+app.use(session({
+  secret: config.get('session_secret'),
+  resave: false,
+  saveUninitialized: true
+}));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
