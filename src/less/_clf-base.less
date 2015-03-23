@@ -47,7 +47,7 @@ body {
     font: normal 100% Cambria, Georgia, "Times New Roman", Times, serif;
     line-height: 1.5em;
     margin: 0;
-    background: @sfuRed url(http://www.sfu.ca/etc/designs/clf/clientlibs/clf/source/images/textured-red-01-small.png) top left repeat;
+    background: @sfuRed url(/images/textured-red-01-small.png) top left repeat;
 }
 
 /* font variables */
@@ -65,10 +65,6 @@ body {
     font-weight: normal;
 }
 
-.brand-font-italic {
-    font-family: "DINWebItalic";
-}
-
 .brand-font (@size: 1em, @leading: 1.3125em) {
     font-size: @size;
     line-height: @leading;
@@ -76,124 +72,23 @@ body {
     font-weight: normal;
 }
 
-.brand-font-heavy (@size: 1em, @leading: 1.3125em) {
-    font-size: @size;
-    line-height: @leading;
-    font-family: "DINWebBlack", sans-serif;
-    font-weight: normal;
-}
-
-.brand-font-light (@size: 1em, @leading: 1.3125em) {
-    font-size: @size;
-    line-height: @leading;
-    font-family: "DINWebLight", sans-serif;
-    font-weight: normal;
-}
-
-.icon-font (@size: 1em, @leading: 1em) {
-    font-size: @size;
-    line-height: @leading;
-    font-family: "fontawesome", sans-serif;
-    font-weight: normal;
-}
-
 /* end variables */
 
-@font-face {
-    font-family: 'DINWebLight';
-    src: url('http://www.sfu.ca/etc/designs/clf/clientlibs/clf/source/fonts/DINWeb-Light.eot');
-    src: url('http://www.sfu.ca/etc/designs/clf/clientlibs/clf/source/fonts/DINWeb-Light.eot?#iefix') format('embedded-opentype'),
-    url('http://www.sfu.ca/etc/designs/clf/clientlibs/clf/source/fonts/DINWeb-Light.woff') format('woff');
-}
 
 @font-face {
     font-family: 'DINWeb';
-    src: url('http://www.sfu.ca/etc/designs/clf/clientlibs/clf/source/fonts/DINWeb.eot');
-    src: url('http://www.sfu.ca/etc/designs/clf/clientlibs/clf/source/fonts/DINWeb.eot?#iefix') format('embedded-opentype'),
-    url('http://www.sfu.ca/etc/designs/clf/clientlibs/clf/source/fonts/DINWeb.woff') format('woff');
+    src: url('/fonts/DINWeb.woff') format('woff');
 }
 
 @font-face {
     font-family: 'DINWebBold';
-    src: url('http://www.sfu.ca/etc/designs/clf/clientlibs/clf/source/fonts/DINWeb-Bold.eot');
-    src: url('http://www.sfu.ca/etc/designs/clf/clientlibs/clf/source/fonts/DINWeb-Bold.eot?#iefix') format('embedded-opentype'),
-    url('http://www.sfu.ca/etc/designs/clf/clientlibs/clf/source/fonts/DINWeb-Bold.woff') format('woff');
+    src: url('/fonts/DINWeb-Bold.woff') format('woff');
 }
 
 @font-face {
     font-family: 'DINWebMedium';
-    src: url('http://www.sfu.ca/etc/designs/clf/clientlibs/clf/source/fonts/DINWeb-Bold.eot');
-    src: url('http://www.sfu.ca/etc/designs/clf/clientlibs/clf/source/fonts/DINWeb-Bold.eot?#iefix') format('embedded-opentype'),
-    url('http://www.sfu.ca/etc/designs/clf/clientlibs/clf/source/fonts/DINWeb-Medium.woff') format('woff');
+    src: url('/fonts/DINWeb-Medium.woff') format('woff');
 }
-
-@font-face {
-    font-family: 'DINWebBlack';
-    src: url('http://www.sfu.ca/etc/designs/clf/clientlibs/clf/source/fonts/DINWeb-Black.eot');
-    src: url('http://www.sfu.ca/etc/designs/clf/clientlibs/clf/source/fonts/DINWeb-Black.eot?#iefix') format('embedded-opentype'),
-    url('http://www.sfu.ca/etc/designs/clf/clientlibs/clf/source/fonts/DINWeb-Black.woff') format('woff');
-}
-
-@font-face {
-    font-family: 'DINWebLightItalic';
-    src: url('http://www.sfu.ca/etc/designs/clf/clientlibs/clf/source/fonts/DINWeb-LightIta.eot');
-    src: url('http://www.sfu.ca/etc/designs/clf/clientlibs/clf/source/fonts/DINWeb-LightIta.eot?#iefix') format('embedded-opentype'),
-    url('http://www.sfu.ca/etc/designs/clf/clientlibs/clf/source/fonts/DINWeb-LightIta.woff') format('woff');
-    font-weight: normal;
-    font-style: italic;
-}
-
-@font-face {
-    font-family: 'DINWebItalic';
-    src: url('http://www.sfu.ca/etc/designs/clf/clientlibs/clf/source/fonts/DINWeb-Ita.eot');
-    src: url('http://www.sfu.ca/etc/designs/clf/clientlibs/clf/source/fonts/DINWeb-Ita.eot?#iefix') format('embedded-opentype'),
-    url('http://www.sfu.ca/etc/designs/clf/clientlibs/clf/source/fonts/DINWeb-Ita.woff') format('woff');
-    font-weight: normal;
-    font-style: italic;
-}
-
-@font-face {
-    font-family: 'DINWebMediumItalic';
-    src: url('http://www.sfu.ca/etc/designs/clf/clientlibs/clf/source/fonts/DINWeb-MediumIta.eot');
-    src: url('http://www.sfu.ca/etc/designs/clf/clientlibs/clf/source/fonts/DINWeb-MediumIta.eot?#iefix') format('embedded-opentype'),
-    url('http://www.sfu.ca/etc/designs/clf/clientlibs/clf/source/fonts/DINWeb-MediumIta.woff') format('woff');
-    font-weight: normal;
-    font-style: italic;
-}
-
-@font-face {
-    font-family: 'DINWebBoldItalic';
-    src: url('http://www.sfu.ca/etc/designs/clf/clientlibs/clf/source/fonts/DINWeb-BoldIta.eot');
-    src: url('http://www.sfu.ca/etc/designs/clf/clientlibs/clf/source/fonts/DINWeb-BoldIta.eot?#iefix') format('embedded-opentype'),
-    url('http://www.sfu.ca/etc/designs/clf/clientlibs/clf/source/fonts/DINWeb-BoldIta.woff') format('woff');
-    font-weight: bold;
-    font-style: italic;
-}
-
-@font-face {
-    font-family: 'DINWebBlackItalic';
-    src: url('http://www.sfu.ca/etc/designs/clf/clientlibs/clf/source/fonts/DINWeb-BlackIta.eot');
-    src: url('http://www.sfu.ca/etc/designs/clf/clientlibs/clf/source/fonts/DINWeb-BlackIta.eot?#iefix') format('embedded-opentype'),
-    url('http://www.sfu.ca/etc/designs/clf/clientlibs/clf/source/fonts/DINWeb-BlackIta.woff') format('woff');
-    font-weight: bold;
-    font-style: italic;
-}
-
-@font-face {
-    font-family: 'fontawesome';
-    src: url('http://www.sfu.ca/etc/designs/clf/clientlibs/clf/source/fonts/fontawesome.eot');
-    src: url('http://www.sfu.ca/etc/designs/clf/clientlibs/clf/source/fonts/fontawesome.eot?#iefix') format('embedded-opentype'),
-    url('http://www.sfu.ca/etc/designs/clf/clientlibs/clf/source/fonts/fontawesome.woff') format('woff'),
-    url('http://www.sfu.ca/etc/designs/clf/clientlibs/clf/source/fonts/fontawesome.ttf') format('truetype'),
-    url('http://www.sfu.ca/etc/designs/clf/clientlibs/clf/source/fonts/fontawesome.svg#fontawesome') format('svg');
-    font-weight: normal;
-    font-style: normal;
-}
-
-.icon {
-    .icon-font (1em/1em); // 16px / 21px
-}
-
 
 h1 {
     .brand-font-bold (2em, 1.1em); // 32px
@@ -204,17 +99,8 @@ h1 {
     margin-top: 12px;
 }
 
-h1 b, h1 strong {
-    font-family: 'DINWebBlack';
-}
-
-h1 i, h1 em {
-    font-family: 'DINWebBoldItalic';
-}
-
 h1 span {
     display: block;
-    .brand-font-light (.5em, 1.6em);
     text-transform: uppercase;
     letter-spacing: 0em;
 }
@@ -227,20 +113,12 @@ h2 {
     margin-bottom: 0em;
 }
 
-h2 i, h2 em {
-    font-family: 'DINWebBoldItalic';
-}
-
 h3 {
     .brand-font-bold (1.3125em/1.1em);
     margin-bottom: 1em;
     margin-top: 1em;
 }
 
-
-h3 i, h3 em {
-    font-family: 'DINWebBoldItalic';
-}
 
 h4 {
     .brand-font-bold (.8em, 1.125em);
@@ -267,7 +145,7 @@ ul {
     margin-left: 0px;
 
         li {
-            background: url(http://www.sfu.ca/content/dam/sfu/images/common/bullet_red.gif) 0px 14px no-repeat;
+            background: url(/images/bullet_red.gif) 0px 14px no-repeat;
             padding-left: 16px;
             padding-top: 3px;
         }
@@ -339,7 +217,7 @@ header fieldset {
 .branding {
     width: 300px;
     height: 46px;
-    background: transparent url(http://www.sfu.ca/etc/designs/clf/clientlibs/clf/source/images/sfu-logo.png) top left no-repeat;
+    background: transparent url(/images/sfu-logo.png) top left no-repeat;
     background-size: contain;
 }
 
@@ -387,7 +265,7 @@ header fieldset {
     clear: left;
     height: 25px;
     width: 100%;
-    background: @sfuBlack url(http://www.sfu.ca/etc/designs/clf/clientlibs/clf/source/images/bg-small.png) -70px 0px no-repeat;
+    background: @sfuBlack url(/images/bg-small.png) -70px 0px no-repeat;
 }
 
 
@@ -742,7 +620,7 @@ footer ul:nth-child(3), footer ul:last-child {
 @media (-webkit-min-device-pixel-ratio: 1.25), (min-device-pixel-ratio: 1.25), (min-resolution: 96dpi) {
 
 .branding {
-    background-image: url(http://www.sfu.ca/etc/designs/clf/clientlibs/clf/source/images/sfu-logo@2x.png);
+    background-image: url(/images/sfu-logo@2x.png);
 }
 
 } // close HIDPI/RETINA DISPLAY RULES
