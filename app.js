@@ -7,7 +7,7 @@ var bodyParser = require('body-parser');
 var webpackMiddleware = require("webpack-dev-middleware");
 var session = require('express-session')
 var config = require('config');
-
+var webpackConfig = require('./webpack.config.js');
 var routes = require('./routes/index');
 
 var app = express();
@@ -25,6 +25,8 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 
 if (app.get('env') === 'development') {
+  webpackConfig.devtool = 'eval';
+  webpackConfig.output.path = '/';
   app.use(webpackMiddleware(require('webpack')(require('./webpack.config.js')), {
     publicPath: '/'
   }));
