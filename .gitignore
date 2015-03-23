@@ -3,3 +3,4 @@ log
 tmp
 config/local.json
 public/bundle.js
+config/production_local.json
