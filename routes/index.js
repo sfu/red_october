@@ -38,7 +38,7 @@ var loggedin = function(req, res, next) {
     return;
   }
   req.session.referer = req.url;
-  res.redirect('./login');
+  res.redirect('/login');
 };
 
 router.get('/', loggedin, function(req, res, next) {
@@ -66,9 +66,13 @@ router.post('/ping', function(req, res, next) {
   })
 });
 
+router.get('/isup', function(req, res) {
+  res.status(200).end('ok');
+});
+
 // Authentication Routes
 router.get('/login', casauth, function(req, res) {
-  res.redirect('./');
+  res.redirect('/');
 });
 
 router.get('/logout', function(req, res) {
