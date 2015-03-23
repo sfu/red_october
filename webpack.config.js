@@ -2,9 +2,12 @@ var webpack = require('webpack');
 var path = require('path');
 module.exports = {
   devtool: 'eval',
+  resolve: {
+    extensions: ['', '.js']
+  },
   entry: ['./src/app.js'],
   output: {
-    path: path.resolve('./public'),
+    path: '/',
     filename: 'bundle.js'
   },
   module: {
@@ -17,5 +20,5 @@ module.exports = {
   },
   resolve: {
     modulesDirectories: ['node_modules', 'src'],
-  },
+  }
 }

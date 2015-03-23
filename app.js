@@ -25,7 +25,9 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 
 if (app.get('env') === 'development') {
-  app.use(webpackMiddleware(require('webpack')(require('./webpack.config.js'))));
+  app.use(webpackMiddleware(require('webpack')(require('./webpack.config.js')), {
+    publicPath: '/itservices/redoctober'
+  }));
 }
 
 // uncomment after placing your favicon in /public
