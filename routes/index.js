@@ -22,16 +22,12 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Red October', session_id: req.sessionID });
 });
 
-
 router.post('/ping', function(req, res, next) {
   var url = req.body.url;
   var timeout = req.body.timeout || null;
   var publishers = config.get('publishers');
   var pings = publishers.map(function(p) {
     var options = timeout ? { timeout: parseInt(timeout) } : {};
-    if (p.indexOf('45034') > -1) {
-      options = {timeout: 5};
-    }
     return ping(p + url, options).then(function(response) { return response; }).catch(function(error) { return error; });
   });
   Promise.all(pings).then(function(responses) {
