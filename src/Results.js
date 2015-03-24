@@ -34,6 +34,20 @@ var Results = React.createClass({
     )
   },
 
+  failures(data) {
+    if (!data.length) {
+      return <p>No failures. Everything is ship-shape, Captain.</p>
+    } else {
+      return (
+        <ul>
+          {this.props.failures.map((result, i) => {
+            return <li key={i}>{result}</li>
+          })}
+        </ul>
+      );
+    }
+  },
+
   render: function() {
     if (this.props.showResults) {
       return (
@@ -41,11 +55,7 @@ var Results = React.createClass({
           <h3>Successes</h3>
           {this.successes(this.props.successes)}
           <h3>Failures</h3>
-          <ul>
-          {this.props.failures.map((result, i) => {
-            return <li key={i}>{result}</li>
-          })}
-          </ul>
+          {this.failures(this.props.failures)}
         </div>
       );
     } else {
