@@ -1,0 +1,15 @@
+{
+    "app_port": "7464",
+    "cas_service": "http://localhost:7464/login",
+    "cas_allow_string": "!some-list",
+    "bypass_cas": true,
+    "publishers": [
+        "http://localhost:45031",
+        "http://localhost:45032",
+        "http://localhost:45033",
+        "http://localhost:45034",
+        "http://localhost:45035",
+        "http://localhost:45036"
+    ],
+    "session_secret": "I would like to have seen Montanna"
+}
