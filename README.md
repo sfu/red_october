@@ -26,7 +26,7 @@ The example config assumes that you have set up SSH tunnels from your machine to
 * [react](http://facebook.github.io/react/)
 * [webpack](http://webpack.github.io/)
 * [less](http://lesscss.org/) (for the SFU CLF)
-* [cas](https://github.com/sfu/node-cas-sfu)
+* [node-cas-sfu](https://github.com/sfu/node-cas-sfu)
 * [es6](http://es6rocks.com/) with [babel](https://babeljs.io/)
 
 ![Connery](https://dl.dropboxusercontent.com/u/33854/ezgif.com-resize.gif)
