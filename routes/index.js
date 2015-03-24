@@ -7,16 +7,21 @@ var config = require('config');
 var cas = require('cas-sfu');
 
 // authentication middleware
-var casauth = cas.getMiddleware({
+var cas_config = {
   casBasePath: '/cas',
   loginPath: '/login',
   logoutPath: '/logout',
   validatePath: '/serviceValidate',
   appLogoutPath: '/appLogout',
-  service: config.cas_service,
-  allow: config.get('cas_allow_string'),
+  service: config.get('cas_service'),
   userObject: 'auth'
-});
+}
+
+if (config.has('cas_allow_string')) {
+  cas_config.allow = config.get('cas_allow_string');
+}
+
+var casauth = cas.getMiddleware(cas_config);
 
 var errobjconfig = {
   configurable: true,
