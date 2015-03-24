@@ -6,6 +6,11 @@ var Promise = require('bluebird');
 var config = require('config');
 var cas = require('cas-sfu');
 
+if ('production' === process.env.NODE_ENV && config.has('bypass_cas') && config.get('bypass_cas')) {
+  console.error('WARNING: You have bypass_cas enabled in production. This is probably not what you want. Check your config file.');
+}
+
+
 // authentication middleware
 var cas_config = {
   casBasePath: '/cas',
