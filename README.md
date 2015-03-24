@@ -1,7 +1,7 @@
 # Red October
 Made with ♥ by gnb
 
-## Re-verify our range to target... one ping only.
+## Re-verify our range to target...
 ![One Ping Only](https://dl.dropboxusercontent.com/u/33854/onepingonly.gif)
 
 Red October is a tool for measuring page response time on each of the AEM Publishers. In production, it is located at http://redoctober.its.sfu.ca (restricted to the lcp-staff list).
