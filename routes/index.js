@@ -38,7 +38,7 @@ Object.defineProperty(Error.prototype, 'toJSON', errobjconfig);
 
 
 var loggedin = function(req, res, next) {
-  if (req.session && req.session.auth) {
+  if ((req.session && req.session.auth) || (config.has('bypass_cas') && config.get('bypass_cas'))) {
     next();
     return;
   }
