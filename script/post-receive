@@ -11,8 +11,8 @@ while read OLDSHA NEWSHA REF ; do
 done
 
 # vars
-GIT_DIR=/home/nodeuser/repos/roadconditions.git
-DEPLOY_BASE_PATH=/home/nodeuser/apps/roadconditions
+GIT_DIR=/home/nodeuser/repos/redoctober.git
+DEPLOY_BASE_PATH=/home/nodeuser/apps/redoctober
 DATESTAMP=$(date +"%Y%m%d%H%M%S")
 RELEASE_PATH="$DEPLOY_BASE_PATH/releases/$DATESTAMP"
 CURRENT_PATH="$DEPLOY_BASE_PATH/current"
