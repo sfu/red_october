@@ -17,7 +17,8 @@ app.enable('trust proxy');
 app.use(session({
   secret: config.get('session_secret'),
   resave: false,
-  saveUninitialized: true
+  saveUninitialized: true,
+  name: 'redoctober.sid'
 }));
 
 // view engine setup
