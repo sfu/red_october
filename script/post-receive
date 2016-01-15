@@ -51,7 +51,7 @@ ln -s $SHARED_PATH/{logs,pid} $RELEASE_PATH || { echo "Error symlinking logs & p
 
 # move symlink
 echo "Move symlink"
-rm $CURRENT_PATH || { echo "Error removing current symlink" ; exit 1; }
+rm -f $CURRENT_PATH || { echo "Error removing current symlink" ; exit 1; }
 ln -s $RELEASE_PATH $CURRENT_PATH || { echo "Error making symlink" ; exit 1; }
 
 # start or restart
