@@ -35,5 +35,5 @@ describe('PingTest', function() {
       responses.should.be.an('array').with.length(urls.length);
       responses[0].should.be.an('object').with.keys(expected_keys);
     }).then(done);
-  })
+  });
 });

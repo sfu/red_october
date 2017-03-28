@@ -13,7 +13,7 @@ var Results = React.createClass({
             <td>{r.statusText}</td>
             <td>{r.elapsed_ms} ms</td>
           </tr>
-        )
+        );
       });
     };
 
@@ -31,17 +31,17 @@ var Results = React.createClass({
           {renderRows(data)}
         </tbody>
       </table>
-    )
+    );
   },
 
   failures(data) {
     if (!data.length) {
-      return <p>No failures. Everything is ship-shape, Captain.</p>
+      return <p>No failures. Everything is ship-shape, Captain.</p>;
     } else {
       return (
         <ul>
           {this.props.failures.map((result, i) => {
-            return <li key={i}>{result}</li>
+            return <li key={i}>{result}</li>;
           })}
         </ul>
       );

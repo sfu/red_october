@@ -3,7 +3,7 @@ var router = express.Router();
 var pingAll = require('../lib/pingAll');
 var config = require('config');
 var cas = require('cas-sfu');
-var slack = require('../lib/slack')
+var slack = require('../lib/slack');
 
 if ('production' === process.env.NODE_ENV && config.has('bypass_cas') && config.get('bypass_cas')) {
   console.error('WARNING: You have bypass_cas enabled in production. This is probably not what you want. Check your config file.');
@@ -19,7 +19,7 @@ var cas_config = {
   appLogoutPath: '/appLogout',
   service: config.get('cas_service'),
   userObject: 'auth'
-}
+};
 
 if (config.has('cas_allow_string')) {
   cas_config.allow = config.get('cas_allow_string');
@@ -37,7 +37,7 @@ var verifyToken = function(req, res, next) {
   } else {
     next();
   }
-}
+};
 
 var errobjconfig = {
   configurable: true,
@@ -73,7 +73,7 @@ router.post('/ping', function(req, res) {
 
   pingAll(url, timeout, publishers).then(function(data) {
     res.send(JSON.stringify(data));
-  })
+  });
 });
 
 router.get('/isup', function(req, res) {
@@ -107,19 +107,19 @@ router.post('/slack/ping', verifyToken, function(req, res) {
 
   var url = text || '/itservices.html';
   pingAll(url, null, config.get('publishers')).then(function(results) {
-    console.log(results)
+    console.log(results);
     var message = {
       replace_original: true,
       attachments: []
-    }
+    };
 
     var successes = results.successes.map(function(s) {
       return {
         title: s.url,
         value: 'Response time: ' + s.elapsed_ms + 'ms',
         short: false
-      }
-    })
+      };
+    });
 
     if (successes.length) {
       message.attachments.push({
@@ -127,15 +127,15 @@ router.post('/slack/ping', verifyToken, function(req, res) {
         title: 'Successes',
         text: 'The following publishers appear to be up:',
         fields: successes
-      })
+      });
     }
 
     var failures = results.failures.map(function(f) {
       return {
         title: f,
         short: false
-      }
-    })
+      };
+    });
 
     if (failures.length) {
       message.attachments.push({
@@ -143,12 +143,12 @@ router.post('/slack/ping', verifyToken, function(req, res) {
         title: 'Failures',
         text: 'The following publishers appear to be down:',
         fields: failures
-      })
+      });
     } else {
       message.attachments.push({
         title: 'Failures',
         text: "No failures detected. Everything is ship-shape, Captain."
-      })
+      });
     }
 
     slack.sendMessage(response_url, message);
