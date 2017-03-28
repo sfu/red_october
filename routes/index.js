@@ -59,20 +59,9 @@ router.post('/ping', function(req, res) {
   var url = req.body.url;
   var timeout = req.body.timeout || null;
   var publishers = config.get('publishers');
-  var pings = publishers.map(function(p) {
-    var options = timeout ? { timeout: parseInt(timeout) } : {};
-    return ping(p + url, options).then(function(response) { return response; }).catch(function(error) { return error; });
-  });
-  Promise.all(pings).then(function(responses) {
-    var ret = { successes: [], failures: []};
-    responses.forEach(function(response) {
-      if (response instanceof Error) {
-        ret.failures.push(response.message);
-      } else {
-        ret.successes.push(response);
-      }
-    });
-    res.send(JSON.stringify(ret));
+
+  pingAll(url, timeout, publishers).then(function(data) {
+    res.send(JSON.stringify(data));
   })
 });
 
