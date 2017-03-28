@@ -4,8 +4,8 @@
   "description": "Give me a ping, Vasili. One ping only, please.",
   "main": "index.js",
   "scripts": {
-    "start": "bin/www",
-    "test": "node_modules/.bin/mocha"
+    "start": "nodemon bin/www",
+    "test": "mocha"
   },
   "author": "Graham Ballantyne <grahamb@sfu.ca>",
   "license": "ISC",
