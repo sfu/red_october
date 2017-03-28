@@ -51,11 +51,11 @@ var loggedin = function(req, res, next) {
   res.redirect('/login');
 };
 
-router.get('/', loggedin, function(req, res, next) {
+router.get('/', loggedin, function(req, res) {
   res.render('index', { title: 'Red October', session_id: req.sessionID });
 });
 
-router.post('/ping', function(req, res, next) {
+router.post('/ping', function(req, res) {
   var url = req.body.url;
   var timeout = req.body.timeout || null;
   var publishers = config.get('publishers');
