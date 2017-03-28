@@ -18,7 +18,7 @@ var PingForm = React.createClass({
     if (this.state.show_pinging) {
       return (
         <h2>PINGING&hellip;</h2>
-      )
+      );
     } else {
       return null;
     }
@@ -40,7 +40,7 @@ var PingForm = React.createClass({
       show_results: false
     }, function() {
         var body = {
-          url: this.refs.url.getDOMNode().value
+          url: this.urlInput.value
         };
         fetch('./ping', {
           method: 'post',
@@ -50,11 +50,11 @@ var PingForm = React.createClass({
            'Content-Type': 'application/json'
          },
        }).then(function(response) {
-        return response.json()
+        return response.json();
       }).then(function(json) {
         setState(json);
       });
-    }.bind(this))
+    }.bind(this));
 },
 
 render() {
@@ -64,7 +64,7 @@ render() {
       <p>Requests will time out after 20 seconds.</p>
       <form id="ping" action="/ping" method="POST">
         <label style={{display: 'inline'}} htmlFor="url">http:&#47;&#47;www.sfu.ca</label>
-        <input type="text" id="url" ref="url" name="url" defaultValue="/itservices.html" placeholder="/path/to/page/to/test.html" />
+        <input type="text" id="url" ref={(input) => { this.urlInput = input; }} name="url" defaultValue="/itservices.html" placeholder="/path/to/page/to/test.html" />
         <input onClick={this.ping} type="submit" value="Give me a ping, Vasily. One ping only, please." />
       </form>
       {this.pinging()}

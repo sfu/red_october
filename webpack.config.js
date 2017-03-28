@@ -1,8 +1,9 @@
-var webpack = require('webpack');
-var path = require('path');
 module.exports = {
   resolve: {
-    extensions: ['', '.js']
+    modules: [
+      'src',
+      'node_modules'
+    ]
   },
   entry: ['./src/app.js'],
   output: {
@@ -10,15 +11,14 @@ module.exports = {
     filename: 'bundle.js'
   },
   module: {
-    loaders: [
-      { test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader' },
-      { test: require.resolve('react'), loader: 'expose?React' },
-      { test: /\.less$/,   loader: "style!css!less" },
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: ['babel-loader']
+      },
+      { test: /\.less$/,   loader: "style-loader!css-loader!less-loader" },
       { test: /\.json$/, loader: 'json-loader' }
-
     ]
-  },
-  resolve: {
-    modulesDirectories: ['node_modules', 'src'],
   }
-}
+};

@@ -2,7 +2,7 @@ var React = require('react');
 
 var blockquoteStyle = {
     margin: '30px 0 0 0',
-    paddingLeft: '15px;',
+    paddingLeft: '15px',
     borderLeft: '2px solid #aaa',
     width: '80%'
 };
@@ -29,7 +29,7 @@ var Quote = React.createClass({
     render: function() {
         var quote = this.getQuote();
         return (
-            <blockquote style={blockquoteStyle}>&ldquo;{quote.quote}&rdquo; <span style={quoteAttributionStyle} class="quote_attribution">&ndash; <em>{quote.name}</em></span></blockquote>
+            <blockquote style={blockquoteStyle}>&ldquo;{quote.quote}&rdquo; <span style={quoteAttributionStyle} className="quote_attribution">&ndash; <em>{quote.name}</em></span></blockquote>
         );
     }
 
