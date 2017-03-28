@@ -20,7 +20,7 @@
     "express": "^4.15.2",
     "express-session": "^1.10.4",
     "hbs": "~2.9.0",
-    "morgan": "~1.5.1",
+    "morgan": "^1.8.1",
     "node-fetch": "^1.0.4",
     "object-assign": "^2.0.0",
     "react": "^15.4.2",
