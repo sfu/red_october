@@ -1,9 +1,9 @@
-var express = require('express');
-var router = express.Router();
-var pingAll = require('../lib/pingAll');
-var config = require('config');
-var cas = require('cas-sfu');
-var slack = require('../lib/slack');
+const express = require('express');
+const router = express.Router();
+const pingAll = require('../lib/pingAll');
+const config = require('config');
+const cas = require('cas-sfu');
+const slack = require('../lib/slack');
 
 if ('production' === process.env.NODE_ENV && config.has('bypass_cas') && config.get('bypass_cas')) {
   console.error('WARNING: You have bypass_cas enabled in production. This is probably not what you want. Check your config file.');
@@ -11,7 +11,7 @@ if ('production' === process.env.NODE_ENV && config.has('bypass_cas') && config.
 
 
 // authentication middleware
-var cas_config = {
+const cas_config = {
   casBasePath: '/cas',
   loginPath: '/login',
   logoutPath: '/logout',
@@ -25,9 +25,9 @@ if (config.has('cas_allow_string')) {
   cas_config.allow = config.get('cas_allow_string');
 }
 
-var casauth = cas.getMiddleware(cas_config);
+const casauth = cas.getMiddleware(cas_config);
 
-var verifyToken = function(req, res, next) {
+const verifyToken = function(req, res, next) {
   const token = req.body.payload ?
     JSON.parse(req.body.payload).token :
     req.body.token;
@@ -39,11 +39,11 @@ var verifyToken = function(req, res, next) {
   }
 };
 
-var errobjconfig = {
+const errobjconfig = {
   configurable: true,
   value: function() {
-    var alt = {};
-    var storeKey = function(key) {
+    const alt = {};
+    const storeKey = function(key) {
       alt[key] = this[key];
     };
     Object.getOwnPropertyNames(this).forEach(storeKey, this);
@@ -53,7 +53,7 @@ var errobjconfig = {
 Object.defineProperty(Error.prototype, 'toJSON', errobjconfig);
 
 
-var loggedin = function(req, res, next) {
+const loggedin = function(req, res, next) {
   if ((req.session && req.session.auth) || (config.has('bypass_cas') && config.get('bypass_cas'))) {
     next();
     return;
@@ -67,9 +67,9 @@ router.get('/', loggedin, function(req, res) {
 });
 
 router.post('/ping', function(req, res) {
-  var url = req.body.url;
-  var timeout = req.body.timeout || null;
-  var publishers = config.get('publishers');
+  const url = req.body.url;
+  const timeout = req.body.timeout || null;
+  const publishers = config.get('publishers');
 
   pingAll(url, timeout, publishers).then(function(data) {
     res.send(JSON.stringify(data));
@@ -105,15 +105,15 @@ router.post('/slack/ping', verifyToken, function(req, res) {
     "text": "Pinging, stand by…"
   });
 
-  var url = text || '/itservices.html';
+  const url = text || '/itservices.html';
   pingAll(url, null, config.get('publishers')).then(function(results) {
     console.log(results);
-    var message = {
+    const message = {
       replace_original: true,
       attachments: []
     };
 
-    var successes = results.successes.map(function(s) {
+    const successes = results.successes.map(function(s) {
       return {
         title: s.url,
         value: 'Response time: ' + s.elapsed_ms + 'ms',
@@ -130,7 +130,7 @@ router.post('/slack/ping', verifyToken, function(req, res) {
       });
     }
 
-    var failures = results.failures.map(function(f) {
+    const failures = results.failures.map(function(f) {
       return {
         title: f,
         short: false

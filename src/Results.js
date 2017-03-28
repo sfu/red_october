@@ -1,6 +1,6 @@
-var React = require('react');
-var PropTypes = React.PropTypes;
-var Results = React.createClass({
+const React = require('react');
+const PropTypes = React.PropTypes;
+const Results = React.createClass({
   propTypes: {
     successes: PropTypes.array,
     failures: PropTypes.array,
@@ -8,7 +8,7 @@ var Results = React.createClass({
   },
   successes(data) {
 
-    var renderRows = function(data) {
+    const renderRows = function(data) {
       return data.map((r, i) => {
         return (
           <tr key={i}>

@@ -1,10 +1,10 @@
 require('./less/style.less');
 
-var React = require('react');
-var ReactDOM = require('react-dom');
-var PingForm = require('./PingForm');
-var Quote = require('./Quote');
-var quotelist = require('./quotes.json');
+const React = require('react');
+const ReactDOM = require('react-dom');
+const PingForm = require('./PingForm');
+const Quote = require('./Quote');
+const quotelist = require('./quotes.json');
 
 window.onload = function() {
   ReactDOM.render(<PingForm />, document.getElementById('app'));

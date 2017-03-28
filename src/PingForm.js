@@ -1,9 +1,9 @@
-var React = require('react');
+const React = require('react');
 require('es6-promise').polyfill();
 require('whatwg-fetch');
-var Results = require('./Results');
+const Results = require('./Results');
 
-var PingForm = React.createClass({
+const PingForm = React.createClass({
 
   getInitialState() {
     return {
@@ -25,7 +25,7 @@ var PingForm = React.createClass({
   },
 
   ping(ev) {
-    var setState = function(state) {
+    const setState = function(state) {
       this.setState({
         successes: state.successes,
         failures: state.failures,
@@ -39,7 +39,7 @@ var PingForm = React.createClass({
       show_pinging: true,
       show_results: false
     }, function() {
-        var body = {
+        const body = {
           url: this.urlInput.value
         };
         fetch('./ping', {
