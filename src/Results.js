@@ -1,7 +1,11 @@
 var React = require('react');
-
+var PropTypes = React.PropTypes;
 var Results = React.createClass({
-
+  propTypes: {
+    successes: PropTypes.array,
+    failures: PropTypes.array,
+    showResults: PropTypes.bool
+  },
   successes(data) {
 
     var renderRows = function(data) {
