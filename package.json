@@ -42,7 +42,6 @@
     "eslint-import-resolver-webpack": "^0.8.1",
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-react": "^6.10.3",
-    "expose-loader": "^0.6.0",
     "json-loader": "^0.5.1",
     "less": "^2.4.0",
     "less-loader": "^4.0.2",
