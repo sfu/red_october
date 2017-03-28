@@ -1,8 +1,8 @@
 'use strict';
 var chai = require('chai');
-var should = chai.should();
-var expect = chai.expect;
 var chaiAsPromised = require("chai-as-promised");
+
+chai.should();
 chai.use(chaiAsPromised);
 
 var expected_keys = ['url', 'status', 'statusText', 'ok', 'elapsed_ns', 'elapsed_ms'];
