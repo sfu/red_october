@@ -27,11 +27,10 @@ describe('PingTest', function() {
       'http://www.google.com'
     ];
 
-    const Promise = require('bluebird');
-    const promises = Promise.map(urls, function(url) {
+    const promises = urls.map(function(url) {
       return ping(url);
     });
-    promises.then(function(responses) {
+    Promise.all(promises).then(function(responses) {
       responses.should.be.an('array').with.length(urls.length);
       responses[0].should.be.an('object').with.keys(expected_keys);
     }).then(done);
