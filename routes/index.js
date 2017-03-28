@@ -1,8 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var ping = require('../lib/ping');
-var events = require('events');
-var Promise = require('bluebird');
+var pingAll = require('../lib/pingAll');
 var config = require('config');
 var cas = require('cas-sfu');
 
