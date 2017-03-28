@@ -17,7 +17,6 @@
     "config": "^1.12.0",
     "cookie-parser": "^1.4.3",
     "debug": "^2.6.3",
-    "es6-promise": "^2.0.1",
     "express": "^4.15.2",
     "express-session": "^1.10.4",
     "hbs": "~2.9.0",

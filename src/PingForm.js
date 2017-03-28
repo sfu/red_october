@@ -1,5 +1,4 @@
 const React = require('react');
-require('es6-promise').polyfill();
 require('whatwg-fetch');
 const Results = require('./Results');
 
