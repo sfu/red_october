@@ -1,3 +1,4 @@
+const { resolve } = require('path')
 const express = require('express')
 const router = express.Router()
 const bodyParser = require('body-parser')
@@ -51,7 +52,7 @@ const loggedin = function(req, res, next) {
 }
 
 router.get('/', loggedin, function(req, res) {
-  res.render('index', { title: 'Red October', session_id: req.sessionID })
+  res.sendFile(resolve(__dirname, '../html/index.html'))
 })
 
 router.post('/ping', function(req, res) {
