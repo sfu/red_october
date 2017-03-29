@@ -1,4 +1,6 @@
 const webpack = require('webpack')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin')
 const { resolve } = require('path')
 
 module.exports = (env = {}) => {
@@ -34,6 +36,17 @@ module.exports = (env = {}) => {
     },
 
     plugins: removeEmpty([
+      new HtmlWebpackPlugin({
+        title: 'Red October',
+        inject: false,
+        template: './server/views/index.ejs',
+        filename: resolve(__dirname, 'server/html/index.html'),
+        appMountId: 'app',
+        alwaysWriteToDisk: true
+      }),
+
+      new HtmlWebpackHarddiskPlugin(),
+
       ifProd(
         new webpack.LoaderOptionsPlugin({
           minimize: true,
