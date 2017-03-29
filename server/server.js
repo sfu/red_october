@@ -51,6 +51,7 @@ const createDevServer = app => {
     })
   )
   app.use(WebpackHotMiddleware(compiler))
+
   return app
 }
 
@@ -61,10 +62,10 @@ const createServer = app => {
   app.use(boom())
   app.set('views', path.join(__dirname, 'views'))
   app.use(session(SESSION_CONFIG))
-  app.use(favicon(path.resolve(__dirname, '../public/favicon.ico')))
+  app.use(favicon(path.resolve(__dirname, 'public/favicon.ico')))
   app.use(logger('dev'))
   app.use(cookieParser())
-  app.use(express.static(path.resolve(__dirname, '../public')))
+  app.use(express.static(path.resolve(__dirname, 'public')))
   app.use('/', routes)
   app.use(PRODUCTION ? productionErrorHandler : devErrorHandler())
   return app
