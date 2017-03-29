@@ -4,7 +4,7 @@ const { resolve } = require('path')
 module.exports = (env = {}) => {
   const addItem = (add, item) => add ? item : undefined
   const ifProd = item => addItem(env.prod, item)
-  const ifDev = item => addItem(!env.prod, item)
+  // const ifDev = item => addItem(!env.prod, item)
   const removeEmpty = array => array.filter(i => !!i)
 
   const config = {

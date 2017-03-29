@@ -1,19 +1,13 @@
 const express = require('express')
 const router = express.Router()
+const bodyParser = require('body-parser')
 const pingAll = require('../lib/pingAll')
 const config = require('config')
 const cas = require('cas-sfu')
 const slack = require('../lib/slack')
 
-if (
-  'production' === process.env.NODE_ENV &&
-  config.has('bypass_cas') &&
-  config.get('bypass_cas')
-) {
-  console.error(
-    'WARNING: You have bypass_cas enabled in production. This is probably not what you want. Check your config file.'
-  )
-}
+router.use(bodyParser.json())
+router.use(bodyParser.urlencoded({ extended: false }))
 
 // authentication middleware
 const cas_config = {
@@ -43,19 +37,6 @@ const verifyToken = function(req, res, next) {
     next()
   }
 }
-
-const errobjconfig = {
-  configurable: true,
-  value: function() {
-    const alt = {}
-    const storeKey = function(key) {
-      alt[key] = this[key]
-    }
-    Object.getOwnPropertyNames(this).forEach(storeKey, this)
-    return alt
-  }
-}
-Object.defineProperty(Error.prototype, 'toJSON', errobjconfig)
 
 const loggedin = function(req, res, next) {
   if (
@@ -89,6 +70,7 @@ router.get('/isup', function(req, res) {
 
 // Authentication Routes
 router.get('/login', casauth, function(req, res) {
+  console.log('logged in?')
   res.redirect('/')
 })
 
