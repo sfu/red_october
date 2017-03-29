@@ -60,7 +60,6 @@ const createServer = app => {
   }
   app.use(boom())
   app.set('views', path.join(__dirname, 'views'))
-  app.set('view engine', 'hbs')
   app.use(session(SESSION_CONFIG))
   app.use(favicon(path.resolve(__dirname, '../public/favicon.ico')))
   app.use(logger('dev'))
