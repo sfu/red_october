@@ -10,14 +10,14 @@ module.exports = {
     'eslint:recommended',
     'plugin:react/recommended',
     'plugin:import/errors',
-    'plugin:import/warnings',
+    'plugin:import/warnings'
   ],
 
   env: {
     es6: true,
     node: true,
     browser: true,
-    mocha: true,
+    mocha: true
   },
 
   rules: {
@@ -25,6 +25,6 @@ module.exports = {
     'no-console': [OFF],
     'object-curly-spacing': [ERROR, ALWAYS],
     semi: [ERROR, NEVER],
-    'space-before-function-paren': [ERROR, NEVER],
-  },
+    'space-before-function-paren': [ERROR, NEVER]
+  }
 };

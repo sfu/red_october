@@ -20,7 +20,7 @@ app.use(
     resave: false,
     saveUninitialized: true,
     name: 'redoctober.sid'
-  }),
+  })
 )
 
 // view engine setup
@@ -33,7 +33,7 @@ if (app.get('env') === 'development') {
   app.use(
     webpackMiddleware(require('webpack')(require('./webpack.config.js')), {
       publicPath: '/'
-    }),
+    })
   )
 }
 

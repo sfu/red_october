@@ -10,6 +10,6 @@ window.onload = function() {
   ReactDOM.render(<PingForm />, document.getElementById('app'))
   ReactDOM.render(
     <Quote quotes={quotelist} />,
-    document.getElementById('quote'),
+    document.getElementById('quote')
   )
 }

@@ -53,7 +53,7 @@ const PingForm = React.createClass({
           .then(function(json) {
             setState(json)
           })
-      }.bind(this),
+      }.bind(this)
     )
   },
 

@@ -11,7 +11,7 @@ if (
   config.get('bypass_cas')
 ) {
   console.error(
-    'WARNING: You have bypass_cas enabled in production. This is probably not what you want. Check your config file.',
+    'WARNING: You have bypass_cas enabled in production. This is probably not what you want. Check your config file.'
   )
 }
 
@@ -101,7 +101,7 @@ router.get('/logout', function(req, res) {
       cas.options.logoutPath +
       '?url=' +
       encodeURIComponent(cas.options.service) +
-      '&urltext=Click+here+to+return+to+the+application.',
+      '&urltext=Click+here+to+return+to+the+application.'
   )
 })
 
