@@ -3,13 +3,16 @@ require('./less/style.less')
 const React = require('react')
 const ReactDOM = require('react-dom')
 const PingForm = require('./PingForm')
-const Quote = require('./Quote')
-const quotelist = require('./quotes.json')
+const Footer = require('./Footer')
 
-window.onload = function() {
-  ReactDOM.render(<PingForm />, document.getElementById('app'))
-  ReactDOM.render(
-    <Quote quotes={quotelist} />,
-    document.getElementById('quote')
-  )
-}
+const App = () => (
+  <div>
+    <div className="main">
+      <h1>RED OCTOBER</h1>
+      <PingForm />
+    </div>
+    <Footer />
+  </div>
+)
+
+ReactDOM.render(<App />, document.getElementById('page-content'))
