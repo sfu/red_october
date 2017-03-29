@@ -1,5 +1,4 @@
 const React = require('react');
-require('whatwg-fetch');
 const Results = require('./Results');
 
 const PingForm = React.createClass({
