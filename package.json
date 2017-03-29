@@ -4,10 +4,13 @@
   "description": "Give me a ping, Vasili. One ping only, please.",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon bin/www",
+    "prestart": "npm run prebuild",
+    "start": "nodemon -w server -w webpack.config.js server/index.js",
     "test": "mocha",
     "lint": "eslint .",
-    "lint:fix": "npm run lint -- --fix"
+    "lint:fix": "npm run lint -- --fix",
+    "prebuild": "rimraf server/html/* server/public/bundles/*",
+    "build": "NODE_ENV=production webpack --env.prod"
   },
   "author": "Graham Ballantyne <grahamb@sfu.ca>",
   "license": "ISC",
