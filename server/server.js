@@ -5,7 +5,7 @@ const logger = require('morgan')
 const cookieParser = require('cookie-parser')
 const session = require('express-session')
 const config = require('config')
-const routes = require('./routes')
+const { appRoutes, slackRoutes } = require('./routes')
 const boom = require('express-boom')
 const devErrorHandler = require('errorhandler')
 const webpack = require('webpack')
@@ -66,7 +66,8 @@ const createServer = app => {
   app.use(logger('dev'))
   app.use(cookieParser())
   app.use(express.static(path.resolve(__dirname, 'public')))
-  app.use('/', routes)
+  app.use('/', appRoutes)
+  app.use('/slack', slackRoutes)
   app.use(PRODUCTION ? productionErrorHandler : devErrorHandler())
   return app
 }
