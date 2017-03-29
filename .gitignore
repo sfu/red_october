@@ -2,5 +2,7 @@ node_modules
 log
 tmp
 config/local.json
+config/production.json
 public/bundle.js
 config/production_local.json
+public/bundles/*
