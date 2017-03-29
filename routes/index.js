@@ -23,7 +23,7 @@ const cas_config = {
   validatePath: '/serviceValidate',
   appLogoutPath: '/appLogout',
   service: config.get('cas_service'),
-  userObject: 'auth',
+  userObject: 'auth'
 }
 
 if (config.has('cas_allow_string')) {
@@ -53,7 +53,7 @@ const errobjconfig = {
     }
     Object.getOwnPropertyNames(this).forEach(storeKey, this)
     return alt
-  },
+  }
 }
 Object.defineProperty(Error.prototype, 'toJSON', errobjconfig)
 
@@ -111,11 +111,11 @@ router.post('/slack/ping', verifyToken, function(req, res) {
   res.status(200).end()
   const {
     text,
-    response_url,
+    response_url
   } = req.body
 
   slack.sendMessage(response_url, {
-    text: 'Pinging, stand by…',
+    text: 'Pinging, stand by…'
   })
 
   const url = text || '/itservices.html'
@@ -123,14 +123,14 @@ router.post('/slack/ping', verifyToken, function(req, res) {
     console.log(results)
     const message = {
       replace_original: true,
-      attachments: [],
+      attachments: []
     }
 
     const successes = results.successes.map(function(s) {
       return {
         title: s.url,
         value: 'Response time: ' + s.elapsed_ms + 'ms',
-        short: false,
+        short: false
       }
     })
 
@@ -139,14 +139,14 @@ router.post('/slack/ping', verifyToken, function(req, res) {
         color: 'good',
         title: 'Successes',
         text: 'The following publishers appear to be up:',
-        fields: successes,
+        fields: successes
       })
     }
 
     const failures = results.failures.map(function(f) {
       return {
         title: f,
-        short: false,
+        short: false
       }
     })
 
@@ -155,12 +155,12 @@ router.post('/slack/ping', verifyToken, function(req, res) {
         color: 'danger',
         title: 'Failures',
         text: 'The following publishers appear to be down:',
-        fields: failures,
+        fields: failures
       })
     } else {
       message.attachments.push({
         title: 'Failures',
-        text: 'No failures detected. Everything is ship-shape, Captain.',
+        text: 'No failures detected. Everything is ship-shape, Captain.'
       })
     }
 

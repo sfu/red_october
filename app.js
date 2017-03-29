@@ -19,7 +19,7 @@ app.use(
     secret: config.get('session_secret'),
     resave: false,
     saveUninitialized: true,
-    name: 'redoctober.sid',
+    name: 'redoctober.sid'
   }),
 )
 
@@ -32,7 +32,7 @@ if (app.get('env') === 'development') {
   webpackConfig.output.path = '/'
   app.use(
     webpackMiddleware(require('webpack')(require('./webpack.config.js')), {
-      publicPath: '/',
+      publicPath: '/'
     }),
   )
 }
@@ -63,7 +63,7 @@ if (app.get('env') === 'development') {
     res.status(err.status || 500)
     res.render('error', {
       message: err.message,
-      error: err,
+      error: err
     })
   })
 }
@@ -75,7 +75,7 @@ app.use(function(err, req, res) {
   res.status(err.status || 500)
   res.render('error', {
     message: err.message,
-    error: {},
+    error: {}
   })
 })
 

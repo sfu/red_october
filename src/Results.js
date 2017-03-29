@@ -4,7 +4,7 @@ const Results = React.createClass({
   propTypes: {
     successes: PropTypes.array,
     failures: PropTypes.array,
-    showResults: PropTypes.bool,
+    showResults: PropTypes.bool
   },
   successes(data) {
     const renderRows = function(data) {
@@ -64,7 +64,7 @@ const Results = React.createClass({
     } else {
       return null
     }
-  },
+  }
 })
 
 module.exports = Results

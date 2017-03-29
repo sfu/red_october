@@ -4,16 +4,16 @@ const blockquoteStyle = {
   margin: '30px 0 0 0',
   paddingLeft: '15px',
   borderLeft: '2px solid #aaa',
-  width: '80%',
+  width: '80%'
 }
 
 const quoteAttributionStyle = {
-  display: 'block',
+  display: 'block'
 }
 
 const Quote = React.createClass({
   propTypes: {
-    quotes: React.PropTypes.array.isRequired,
+    quotes: React.PropTypes.array.isRequired
   },
 
   getQuote() {
@@ -21,7 +21,7 @@ const Quote = React.createClass({
     const quote = quotes[Math.floor(Math.random() * quotes.length)]
     return {
       quote: quote[0],
-      name: quote[1],
+      name: quote[1]
     }
   },
 
@@ -38,7 +38,7 @@ const Quote = React.createClass({
         </span>
       </blockquote>
     )
-  },
+  }
 })
 
 module.exports = Quote

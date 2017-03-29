@@ -7,7 +7,7 @@ const PingForm = React.createClass({
       show_results: false,
       show_pinging: false,
       successes: [],
-      failures: [],
+      failures: []
     }
   },
 
@@ -25,7 +25,7 @@ const PingForm = React.createClass({
         successes: state.successes,
         failures: state.failures,
         show_results: true,
-        show_pinging: false,
+        show_pinging: false
       })
     }.bind(this)
 
@@ -33,19 +33,19 @@ const PingForm = React.createClass({
     this.setState(
       {
         show_pinging: true,
-        show_results: false,
+        show_results: false
       },
       function() {
         const body = {
-          url: this.urlInput.value,
+          url: this.urlInput.value
         }
         fetch('./ping', {
           method: 'post',
           body: JSON.stringify(body),
           headers: {
             Accept: 'application/json',
-            'Content-Type': 'application/json',
-          },
+            'Content-Type': 'application/json'
+          }
         })
           .then(function(response) {
             return response.json()
@@ -92,7 +92,7 @@ const PingForm = React.createClass({
         />
       </div>
     )
-  },
+  }
 })
 
 module.exports = PingForm

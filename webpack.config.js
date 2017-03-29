@@ -1,9 +1,6 @@
 module.exports = {
   resolve: {
-    modules: [
-      'src',
-      'node_modules'
-    ]
+    modules: ['src', 'node_modules']
   },
   entry: ['whatwg-fetch', './src/app.js'],
   output: {
@@ -17,7 +14,7 @@ module.exports = {
         exclude: /node_modules/,
         use: ['babel-loader']
       },
-      { test: /\.less$/,   loader: "style-loader!css-loader!less-loader" },
+      { test: /\.less$/, loader: 'style-loader!css-loader!less-loader' },
       { test: /\.json$/, loader: 'json-loader' }
     ]
   }

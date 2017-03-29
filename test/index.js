@@ -11,7 +11,7 @@ const expected_keys = [
   'statusText',
   'ok',
   'elapsed_ns',
-  'elapsed_ms',
+  'elapsed_ms'
 ]
 
 describe('PingTest', function() {
@@ -34,7 +34,7 @@ describe('PingTest', function() {
     const urls = [
       'http://www.sfu.ca/',
       'http://www.sfu.ca/itservices',
-      'http://www.google.com',
+      'http://www.google.com'
     ]
 
     const promises = urls.map(function(url) {
