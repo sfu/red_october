@@ -1,13 +1,12 @@
-const React = require('react');
-const PropTypes = React.PropTypes;
+const React = require('react')
+const PropTypes = React.PropTypes
 const Results = React.createClass({
   propTypes: {
     successes: PropTypes.array,
     failures: PropTypes.array,
-    showResults: PropTypes.bool
+    showResults: PropTypes.bool,
   },
   successes(data) {
-
     const renderRows = function(data) {
       return data.map((r, i) => {
         return (
@@ -17,12 +16,12 @@ const Results = React.createClass({
             <td>{r.statusText}</td>
             <td>{r.elapsed_ms} ms</td>
           </tr>
-        );
-      });
-    };
+        )
+      })
+    }
 
     return (
-      <table style={{width: '100%'}}>
+      <table style={{ width: '100%' }}>
         <thead>
           <tr>
             <th>URL</th>
@@ -35,39 +34,37 @@ const Results = React.createClass({
           {renderRows(data)}
         </tbody>
       </table>
-    );
+    )
   },
 
   failures(data) {
     if (!data.length) {
-      return <p>No failures. Everything is ship-shape, Captain.</p>;
+      return <p>No failures. Everything is ship-shape, Captain.</p>
     } else {
       return (
         <ul>
           {this.props.failures.map((result, i) => {
-            return <li key={i}>{result}</li>;
+            return <li key={i}>{result}</li>
           })}
         </ul>
-      );
+      )
     }
   },
 
   render: function() {
     if (this.props.showResults) {
       return (
-        <div style={{marginTop: '40px'}}>
+        <div style={{ marginTop: '40px' }}>
           <h3>Successes</h3>
           {this.successes(this.props.successes)}
           <h3>Failures</h3>
           {this.failures(this.props.failures)}
         </div>
-      );
+      )
     } else {
-      return null;
+      return null
     }
+  },
+})
 
-  }
-
-});
-
-module.exports = Results;
+module.exports = Results

@@ -7,7 +7,7 @@
     "start": "nodemon bin/www",
     "test": "mocha",
     "lint": "eslint .",
-    "lint:fix": "npm run eslint -- --fix"
+    "lint:fix": "npm run lint -- --fix"
   },
   "author": "Graham Ballantyne <grahamb@sfu.ca>",
   "license": "ISC",
