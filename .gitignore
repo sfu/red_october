@@ -3,6 +3,6 @@ log
 tmp
 config/local.json
 config/production.json
-public/bundle.js
+server/public/bundles
 config/production_local.json
-public/bundles/*
+server/html/*
