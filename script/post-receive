@@ -20,6 +20,7 @@ SHARED_PATH="$DEPLOY_BASE_PATH/shared"
 LOG_PATH="$DEPLOY_BASE_PATH/shared/logs"
 PRESTART_URL="http://localhost:7464/isup"
 PIDFILE="$CURRENT_PATH/pid/passenger.pid"
+export PASSENGER_INSTANCE_REGISTRY_DIR=/var/run/passenger-instreg/passenger-redoctober
 
 echo "GIT_DIR: $GIT_DIR"
 echo "DEPLOY_BASE_PATH: $DEPLOY_BASE_PATH"
