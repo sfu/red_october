@@ -47,7 +47,6 @@ router.post('/ping', verifyToken, function(req, res) {
         1500
       )
       pingAll(url, null, config.get('publishers')).then(function(results) {
-        console.log(results)
         clearInterval(intervalId)
         slack.sendMessage(response_url, slack.formatMessage(results))
       })
