@@ -1,6 +1,6 @@
 {
   "name": "redoctober",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "description": "Give me a ping, Vasili. One ping only, please.",
   "main": "index.js",
   "scripts": {
