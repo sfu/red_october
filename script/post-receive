@@ -38,9 +38,9 @@ mkdir -p $RELEASE_PATH  || { echo "Error creating $RELEASE_PATH" ; exit 1; }
 echo "Check out files to release directory"
 git --work-tree=$RELEASE_PATH --git-dir=$GIT_DIR checkout -f || { echo "Error checking out files" ; exit 1; }
 
-# npm install
-echo "npm install"
-cd $RELEASE_PATH && npm install || { echo "Error running npm install" ; exit 1; }
+# yarn install
+echo "yarn install"
+cd $RELEASE_PATH && nvm use && yarn install || { echo "Error running yarn install" ; exit 1; }
 
 # copy config files
 echo "Symlink config files"
