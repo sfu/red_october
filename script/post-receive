@@ -20,7 +20,11 @@ SHARED_PATH="$DEPLOY_BASE_PATH/shared"
 LOG_PATH="$DEPLOY_BASE_PATH/shared/logs"
 PRESTART_URL="http://localhost:7464/isup"
 PIDFILE="$CURRENT_PATH/pid/passenger.pid"
-export PASSENGER_INSTANCE_REGISTRY_DIR=/var/run/passenger-instreg/passenger-redoctober
+export PASSENGER_INSTANCE_REGISTRY_DIR=/home/nodeuser/apps/redoctober/passenger
+export NVM_DIR="/home/nodeuser/.nvm"
+
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+
 
 echo "GIT_DIR: $GIT_DIR"
 echo "DEPLOY_BASE_PATH: $DEPLOY_BASE_PATH"
@@ -41,6 +45,10 @@ git --work-tree=$RELEASE_PATH --git-dir=$GIT_DIR checkout -f || { echo "Error ch
 # yarn install
 echo "yarn install"
 cd $RELEASE_PATH && nvm use && yarn install || { echo "Error running yarn install" ; exit 1; }
+
+# build app
+echo "build app"
+cd $RELEASE_PATH && nvm use && yarn build || { echo "Error building app" ; exit 1; }
 
 # copy config files
 echo "Symlink config files"
