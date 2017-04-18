@@ -2,7 +2,7 @@
 const fetch = require('node-fetch')
 
 module.exports = function(url, options = {}) {
-  const defaults = Object.assign({ timeout: 2000 }, options)
+  const defaults = Object.assign({ timeout: 20000 }, options)
   const start = process.hrtime()
   return fetch(url, defaults)
     .then(function(res) {
